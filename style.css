@@ -33,3 +33,17 @@
   background-color: black;
   border: 1px solid #000;
 }
+
+#clues {
+  max-width: 300px;
+}
+
+.clue-section h2 {
+  margin-bottom: 5px;
+}
+
+.clue-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
