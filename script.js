@@ -1,29 +1,22 @@
 const crossword = document.getElementById("crossword");
 const checkButton = document.getElementById("check");
 
-// Crossword layout
-// "" = empty white cell
-// "#" = black cell
+// Small test grid (5x5)
 const gridData = [
-  ["", "", "", "", "#", "", "", "", "", "", "", "", "", "", ""],
-  ["", "#", "", "", "", "", "#", "", "", "#", "", "", "", "#", ""],
-  ["", "", "", "#", "", "", "", "", "", "", "", "#", "", "", ""],
-  ["", "", "", "", "", "#", "", "", "#", "", "", "", "", "", ""],
-  ["#", "", "", "", "", "", "", "#", "", "", "", "", "", "", "#"],
-  // ... fill the rest
+  ["", "", "#", "", ""],
+  ["", "#", "", "#", ""],
+  ["", "", "", "", ""],
+  ["", "#", "", "#", ""],
+  ["", "", "#", "", ""],
 ];
 
-<button id="check">Check Answers</button>
-
-// Correct solution grid
-// Must match gridData dimensions
+// Correct answers (5x5, same size as gridData)
 const solutionGrid = [
-  ["Y", "N", "W", "A", "#", "L", "I", "V", "E", "R", "P", "O", "O", "L", ""],
-  ["", "#", "N", "E", "V", "E", "#", "W", "A", "#", "L", "K", "", "#", ""],
-  ["", "", "A", "#", "L", "O", "N", "E", "", "", "", "#", "", "", ""],
-  ["", "", "L", "", "", "#", "Y", "N", "#", "W", "A", "Y", "", "", ""],
-  ["#", "K", "O", "P", "", "", "", "#", "R", "E", "D", "S", "", "", "#"],
-  // ... fill the rest
+  ["C", "A", "#", "T", "S"],
+  ["U", "#", "P", "#", "E"],
+  ["P", "O", "O", "L", "S"],
+  ["S", "#", "E", "#", "R"],
+  ["E", "D", "#", "S", "X"],
 ];
 
 const rows = gridData.length;
@@ -59,7 +52,7 @@ checkButton.addEventListener("click", () => {
     const r = parseInt(input.dataset.row);
     const c = parseInt(input.dataset.col);
     const userVal = input.value.toUpperCase();
-    const correctVal = solutionGrid[r][c]?.toUpperCase();
+    const correctVal = solutionGrid[r][c];
 
     if (userVal === "") {
       input.style.backgroundColor = "white"; // not filled yet
