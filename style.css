@@ -1,13 +1,35 @@
-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #555;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px; /* Add some space between buttons */
+/* Crossword container */
+#crossword {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr); /* adjust grid size here */
+  width: 600px;
+  border: 2px solid black;
+  margin: 20px auto;
 }
 
-button:hover {
-    background-color: #777;
+/* Generic cell */
+.cell {
+  border: 1px solid #333;
+  aspect-ratio: 1 / 1; /* ensures perfect squares */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+/* Input field inside white cells */
+.cell input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+/* Black cells */
+.cell.black {
+  background-color: black;
+  border: 1px solid #000;
 }
