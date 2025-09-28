@@ -28,6 +28,20 @@
   text-transform: uppercase;
 }
 
+.cell {
+  position: relative;
+}
+
+.clue-number {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 0.6em;
+  color: black;
+  pointer-events: none;
+}
+
+
 /* Black cells */
 .cell.black {
   background-color: black;
