@@ -41,6 +41,25 @@ const solutionGrid = [
   ["", "", "L", "I", "V", "E", "#", "R", "B", "I", "R", "D", "", "", ""],
 ];
 
+// Example clue list - replace with your real across/down data
+const clues = [
+  { number: 1, row: 0, col: 0 },
+  { number: 2, row: 0, col: 3 },
+  { number: 3, row: 2, col: 0 },
+  // ... continue with your crossword's real starting positions
+];
+
+// Insert clue numbers into grid
+clues.forEach(clue => {
+  const cell = document.getElementById(`cell-${clue.row}-${clue.col}`);
+  if (cell) {
+    const span = cell.querySelector(".clue-number");
+    if (span) {
+      span.innerText = clue.number;
+    }
+  }
+});
+
 const rows = gridData.length;
 const cols = gridData[0].length;
 
