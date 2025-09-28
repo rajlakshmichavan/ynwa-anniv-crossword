@@ -34,12 +34,15 @@
 
 .clue-number {
   position: absolute;
-  top: 2px;
+  top: 1px;
   left: 2px;
-  font-size: 0.6em;
+  font-size: 0.55em;
+  font-weight: bold;
   color: black;
+  line-height: 1;
   pointer-events: none;
 }
+
 
 
 /* Black cells */
