@@ -48,6 +48,7 @@ const cols = gridData[0].length;
 crossword.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 
 // build crossword cells
+let clueNumber = 1;
 for (let r = 0; r < rows; r++) {
   for (let c = 0; c < cols; c++) {
     const cell = document.createElement("div");
@@ -60,6 +61,22 @@ for (let r = 0; r < rows; r++) {
       input.maxLength = 1;
       input.dataset.row = r;
       input.dataset.col = c;
+
+      // Check if start of a clue
+      const startOfAcross =
+        (c === 0 || gridData[r][c - 1] === "#") &&
+        (c + 1 < cols && gridData[r][c + 1] !== "#");
+      const startOfDown =
+        (r === 0 || gridData[r - 1][c] === "#") &&
+        (r + 1 < rows && gridData[r + 1][c] !== "#");
+
+      if (startOfAcross || startOfDown) {
+        const numberSpan = document.createElement("span");
+        numberSpan.classList.add("clue-number");
+        numberSpan.textContent = clueNumber++;
+        cell.appendChild(numberSpan);
+      }
+
       cell.appendChild(input);
     }
 
