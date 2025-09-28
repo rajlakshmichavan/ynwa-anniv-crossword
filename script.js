@@ -41,6 +41,16 @@ const solutionGrid = [
   ["", "", "L", "I", "V", "E", "#", "R", "B", "I", "R", "D", "", "", ""],
 ];
 
+// Clue numbers grid (null where no clue starts, number where one does)
+const clueNumbers = [
+  [1, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+  [null, null, 2, null, null, null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, 3, null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+  [null, 4, null, null, null, null, null, null, 5, null, null, null, null, null, null],
+  // ... fill this out with your intended numbering
+];
+
 const rows = gridData.length;
 const cols = gridData[0].length;
 
@@ -48,7 +58,6 @@ const cols = gridData[0].length;
 crossword.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 
 // build crossword cells
-let clueNumber = 1;
 for (let r = 0; r < rows; r++) {
   for (let c = 0; c < cols; c++) {
     const cell = document.createElement("div");
@@ -62,18 +71,11 @@ for (let r = 0; r < rows; r++) {
       input.dataset.row = r;
       input.dataset.col = c;
 
-      // Check if start of a clue
-      const startOfAcross =
-        (c === 0 || gridData[r][c - 1] === "#") &&
-        (c + 1 < cols && gridData[r][c + 1] !== "#");
-      const startOfDown =
-        (r === 0 || gridData[r - 1][c] === "#") &&
-        (r + 1 < rows && gridData[r + 1][c] !== "#");
-
-      if (startOfAcross || startOfDown) {
+      // If this cell has a clue number, render it
+      if (clueNumbers[r] && clueNumbers[r][c] !== null) {
         const numberSpan = document.createElement("span");
         numberSpan.classList.add("clue-number");
-        numberSpan.textContent = clueNumber++;
+        numberSpan.textContent = clueNumbers[r][c];
         cell.appendChild(numberSpan);
       }
 
