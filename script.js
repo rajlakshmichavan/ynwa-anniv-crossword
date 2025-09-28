@@ -60,16 +60,34 @@ const solutionGrid = [
   ["#","#","#","#","#","#","#","L","#","#","#","S","I","M","B","A","#","#","#","#","#","#","#","#","#"]
 ];
 
-// Clue numbers grid (all padded to 25 wide)
-const clueNumbers = Array.from({ length: 25 }, (_, r) =>
-  Array.from({ length: 25 }, (_, c) => null)
-);
-// Fill in actual clue numbers where needed
-clueNumbers[0][12] = 1;
-clueNumbers[1][1] = 2;
-clueNumbers[1][4] = 3;
-clueNumbers[1][6] = 4;
-// ... add others as you wish
+const clueNumbers = [
+  [null,null,null,null,null,null,null,null,null,null,null,null,1,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,2,null,null,3,null,4,null,null,null,null,5,null,null,null,null,6,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,7,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,8,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,9,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,10,null,null,null,null,null,11,null,null,null,null,null,null,null,null],
+  [null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,13,null,null,14,null,null,null,null,null,null,null,null],
+  [null,null,null,null,15,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,17,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,19,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,22,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,20,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,21,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null,null,23,null,null,null,null,null,null,null,null,null,null,null,null,null],
+];
+
 
 const rows = gridData.length;
 const cols = gridData[0].length;
